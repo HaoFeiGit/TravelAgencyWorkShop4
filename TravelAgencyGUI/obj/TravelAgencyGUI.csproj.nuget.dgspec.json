@@ -1,20 +1,24 @@
 {
   "format": 1,
   "restore": {
-    "C:\\Users\\Hao Fei\\source\\repos\\TravelAgency\\TravelAgencyGUI\\TravelAgencyGUI.csproj": {}
+    "C:\\Users\\jimmy\\Source\\Repos\\TravelAgencyWorkShop4\\TravelAgencyGUI\\TravelAgencyGUI.csproj": {}
   },
   "projects": {
-    "C:\\Users\\Hao Fei\\source\\repos\\TravelAgency\\TravelAgencyData\\TravelAgencyData.csproj": {
+    "C:\\Users\\jimmy\\Source\\Repos\\TravelAgencyWorkShop4\\TravelAgencyData\\TravelAgencyData.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\Hao Fei\\source\\repos\\TravelAgency\\TravelAgencyData\\TravelAgencyData.csproj",
+        "projectUniqueName": "C:\\Users\\jimmy\\Source\\Repos\\TravelAgencyWorkShop4\\TravelAgencyData\\TravelAgencyData.csproj",
         "projectName": "TravelAgencyData",
-        "projectPath": "C:\\Users\\Hao Fei\\source\\repos\\TravelAgency\\TravelAgencyData\\TravelAgencyData.csproj",
-        "packagesPath": "C:\\Users\\Hao Fei\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\Hao Fei\\source\\repos\\TravelAgency\\TravelAgencyData\\obj\\",
+        "projectPath": "C:\\Users\\jimmy\\Source\\Repos\\TravelAgencyWorkShop4\\TravelAgencyData\\TravelAgencyData.csproj",
+        "packagesPath": "C:\\Users\\jimmy\\.nuget\\packages\\",
+        "outputPath": "C:\\Users\\jimmy\\Source\\Repos\\TravelAgencyWorkShop4\\TravelAgencyData\\obj\\",
         "projectStyle": "PackageReference",
+        "fallbackFolders": [
+          "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
+        ],
         "configFilePaths": [
-          "C:\\Users\\Hao Fei\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Users\\jimmy\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.FallbackLocation.config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
         ],
         "originalTargetFrameworks": [
@@ -22,8 +26,7 @@
         ],
         "sources": {
           "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
-          "https://api.nuget.org/v3/index.json": {},
-          "https://packagesource": {}
+          "https://api.nuget.org/v3/index.json": {}
         },
         "frameworks": {
           "netcoreapp3.1": {
@@ -71,17 +74,21 @@
         }
       }
     },
-    "C:\\Users\\Hao Fei\\source\\repos\\TravelAgency\\TravelAgencyGUI\\TravelAgencyGUI.csproj": {
+    "C:\\Users\\jimmy\\Source\\Repos\\TravelAgencyWorkShop4\\TravelAgencyGUI\\TravelAgencyGUI.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\Hao Fei\\source\\repos\\TravelAgency\\TravelAgencyGUI\\TravelAgencyGUI.csproj",
+        "projectUniqueName": "C:\\Users\\jimmy\\Source\\Repos\\TravelAgencyWorkShop4\\TravelAgencyGUI\\TravelAgencyGUI.csproj",
         "projectName": "TravelAgencyGUI",
-        "projectPath": "C:\\Users\\Hao Fei\\source\\repos\\TravelAgency\\TravelAgencyGUI\\TravelAgencyGUI.csproj",
-        "packagesPath": "C:\\Users\\Hao Fei\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\Hao Fei\\source\\repos\\TravelAgency\\TravelAgencyGUI\\obj\\",
+        "projectPath": "C:\\Users\\jimmy\\Source\\Repos\\TravelAgencyWorkShop4\\TravelAgencyGUI\\TravelAgencyGUI.csproj",
+        "packagesPath": "C:\\Users\\jimmy\\.nuget\\packages\\",
+        "outputPath": "C:\\Users\\jimmy\\Source\\Repos\\TravelAgencyWorkShop4\\TravelAgencyGUI\\obj\\",
         "projectStyle": "PackageReference",
+        "fallbackFolders": [
+          "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
+        ],
         "configFilePaths": [
-          "C:\\Users\\Hao Fei\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Users\\jimmy\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.FallbackLocation.config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
         ],
         "originalTargetFrameworks": [
@@ -89,15 +96,14 @@
         ],
         "sources": {
           "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
-          "https://api.nuget.org/v3/index.json": {},
-          "https://packagesource": {}
+          "https://api.nuget.org/v3/index.json": {}
         },
         "frameworks": {
           "netcoreapp3.1": {
             "targetAlias": "netcoreapp3.1",
             "projectReferences": {
-              "C:\\Users\\Hao Fei\\source\\repos\\TravelAgency\\TravelAgencyData\\TravelAgencyData.csproj": {
-                "projectPath": "C:\\Users\\Hao Fei\\source\\repos\\TravelAgency\\TravelAgencyData\\TravelAgencyData.csproj"
+              "C:\\Users\\jimmy\\Source\\Repos\\TravelAgencyWorkShop4\\TravelAgencyData\\TravelAgencyData.csproj": {
+                "projectPath": "C:\\Users\\jimmy\\Source\\Repos\\TravelAgencyWorkShop4\\TravelAgencyData\\TravelAgencyData.csproj"
               }
             }
           }

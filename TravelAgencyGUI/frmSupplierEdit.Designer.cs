@@ -37,12 +37,13 @@ namespace TravelAgencyGUI
             // 
             // btnAccept
             // 
-            this.btnAccept.Location = new System.Drawing.Point(138, 348);
+            this.btnAccept.Location = new System.Drawing.Point(138, 179);
             this.btnAccept.Name = "btnAccept";
-            this.btnAccept.Size = new System.Drawing.Size(75, 33);
+            this.btnAccept.Size = new System.Drawing.Size(218, 53);
             this.btnAccept.TabIndex = 0;
             this.btnAccept.Text = "Accept";
             this.btnAccept.UseVisualStyleBackColor = true;
+            this.btnAccept.Click += new System.EventHandler(this.btnAccept_Click);
             // 
             // label1
             // 
@@ -62,9 +63,9 @@ namespace TravelAgencyGUI
             // 
             // btnCancel
             // 
-            this.btnCancel.Location = new System.Drawing.Point(363, 348);
+            this.btnCancel.Location = new System.Drawing.Point(407, 179);
             this.btnCancel.Name = "btnCancel";
-            this.btnCancel.Size = new System.Drawing.Size(75, 33);
+            this.btnCancel.Size = new System.Drawing.Size(218, 53);
             this.btnCancel.TabIndex = 3;
             this.btnCancel.Text = "Cancel";
             this.btnCancel.UseVisualStyleBackColor = true;
@@ -74,14 +75,16 @@ namespace TravelAgencyGUI
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 17F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(906, 552);
+            this.ClientSize = new System.Drawing.Size(779, 320);
             this.Controls.Add(this.btnCancel);
             this.Controls.Add(this.txtSupName);
             this.Controls.Add(this.label1);
             this.Controls.Add(this.btnAccept);
             this.Font = new System.Drawing.Font("Segoe UI Semibold", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
             this.Name = "frmSupplierEdit";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterParent;
             this.Text = "frmSupplierEdit";
+            this.Load += new System.EventHandler(this.frmSupplierEdit_Load);
             this.ResumeLayout(false);
             this.PerformLayout();
 

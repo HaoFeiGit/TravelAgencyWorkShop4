@@ -1,4 +1,6 @@
-﻿using System;
+﻿using Microsoft.Data.SqlClient;
+using Microsoft.EntityFrameworkCore;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -30,6 +32,7 @@ namespace TravelAgencyGUI
         {
             dgvSuppliers.Columns.Clear(); // clears old content
             var suppliers = context.Suppliers // retrieve products data
+                .OrderBy(s => s.SupplierId)
                 .Select(s => new { s.SupplierId, s.SupName })
                 .ToList();
 
@@ -90,30 +93,100 @@ namespace TravelAgencyGUI
 
             if (e.ColumnIndex == ModifyIndex)
             {
-                ModifyProduct();
+                ModifySupplier();
             }
             else if (e.ColumnIndex == DeleteIndex)
             {
-                DeleteProduct();
+                DeleteSupplier();
             }
         }
 
-        private void ModifyProduct()
+        private void ModifySupplier()
         {
-            frmSupplierEdit supEditForm = new frmSupplierEdit();
-            supEditForm.Show();
+           
+            //load form and pass variable into form
+            frmSupplierEdit supEditForm = new frmSupplierEdit() {
+                isAdd = false,
+                supplier = selectedSupplier
+            };
+            
+            DialogResult result = supEditForm.ShowDialog(); // set form as a dialog form, Accept returns OK or cancel
+            if (result == DialogResult.OK)
+            {
+                selectedSupplier = supEditForm.supplier; // collect updated/new object from second form
+                try
+                {
+                    context.SaveChanges(); //save to db
+                    DisplaySupplier();
+                }
+                catch (DbUpdateException ex)
+                {
+                    HandleDataError(ex);
+                }
+                catch (Exception ex)
+                {
+                    HandleGeneralError(ex);
+                }
+            }
+
         }
 
-        private void DeleteProduct()
+        private void DeleteSupplier()
         {
             DialogResult result = MessageBox.Show($"Do you want to delete {selectedSupplier.SupName}?",
                             "Confirm Delete", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
+            if (result == DialogResult.Yes)
+            {
+                try
+                {
+                    // remove selected product
+                    context.Suppliers.Remove(selectedSupplier);
+                    context.SaveChanges();
+                    DisplaySupplier();
+                    // clear controls
+
+                }
+                catch (DbUpdateException ex)
+                {
+                    HandleDataError(ex);
+                }
+                catch (Exception ex)
+                {
+                    HandleGeneralError(ex);
+                }
+            }
         }
 
         private void btnAdd_Click(object sender, EventArgs e)
         {
-            frmSupplierEdit supEditForm = new frmSupplierEdit();
-            supEditForm.Show();
+            frmSupplierEdit supEditForm = new frmSupplierEdit()
+            {
+                isAdd = true,
+                supplier = null,  //do not pass in
+                //generate new id +1 from the last row value
+                newSupplierID = Int32.Parse(dgvSuppliers.Rows[dgvSuppliers.RowCount-1].Cells[0].Value.ToString().Trim()) + 1 
+            };
+            
+            DialogResult result = supEditForm.ShowDialog(); // set form as a dialog form, Accept returns OK or cancel
+            if (result == DialogResult.OK)
+            {
+                selectedSupplier = supEditForm.supplier; // collect updated/new object from second form
+                try
+                {
+                    context.Suppliers.Add(selectedSupplier); //add into context
+
+                    context.SaveChanges(); //save to db
+                    DisplaySupplier();
+                }
+                catch (DbUpdateException ex)
+                {
+                    HandleDataError(ex);
+                }
+                catch (Exception ex)
+                {
+                    HandleGeneralError(ex);
+                }
+            }
         }
 
         private void btnToMain_Click(object sender, EventArgs e)
@@ -121,6 +194,22 @@ namespace TravelAgencyGUI
             this.Close();
         }
 
-      
+        ///error handling
+        private void HandleDataError(DbUpdateException ex)
+        {
+            var sqlException = (SqlException)ex.InnerException; //can carry multiple errors
+            string message = "";
+            foreach (SqlError error in sqlException.Errors)
+            {
+                message += "ERROR code: " + error.Number + " - " + error.Message + "\n";
+            }
+            MessageBox.Show(message, "Data Error(s)");
+        }
+        // displays error message of unknown (any) error
+        private void HandleGeneralError(Exception ex)
+        {
+            MessageBox.Show(ex.Message, ex.GetType().ToString());
+        }
+
     }
 }

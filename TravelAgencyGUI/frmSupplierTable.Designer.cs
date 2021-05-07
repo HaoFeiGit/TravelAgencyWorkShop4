@@ -47,9 +47,9 @@ namespace TravelAgencyGUI
             // 
             // btnAdd
             // 
-            this.btnAdd.Location = new System.Drawing.Point(128, 510);
+            this.btnAdd.Location = new System.Drawing.Point(128, 466);
             this.btnAdd.Name = "btnAdd";
-            this.btnAdd.Size = new System.Drawing.Size(102, 46);
+            this.btnAdd.Size = new System.Drawing.Size(215, 46);
             this.btnAdd.TabIndex = 1;
             this.btnAdd.Text = "Add Supplier";
             this.btnAdd.UseVisualStyleBackColor = true;
@@ -57,9 +57,9 @@ namespace TravelAgencyGUI
             // 
             // btnToMain
             // 
-            this.btnToMain.Location = new System.Drawing.Point(767, 510);
+            this.btnToMain.Location = new System.Drawing.Point(659, 466);
             this.btnToMain.Name = "btnToMain";
-            this.btnToMain.Size = new System.Drawing.Size(102, 46);
+            this.btnToMain.Size = new System.Drawing.Size(210, 46);
             this.btnToMain.TabIndex = 2;
             this.btnToMain.Text = "To Main";
             this.btnToMain.UseVisualStyleBackColor = true;
@@ -75,6 +75,7 @@ namespace TravelAgencyGUI
             this.Controls.Add(this.dgvSuppliers);
             this.Font = new System.Drawing.Font("Segoe UI Semibold", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
             this.Name = "frmSupplierTable";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterParent;
             this.Text = "frmSupplierTable";
             this.Load += new System.EventHandler(this.frmSupplierTable_Load);
             ((System.ComponentModel.ISupportInitialize)(this.dgvSuppliers)).EndInit();
