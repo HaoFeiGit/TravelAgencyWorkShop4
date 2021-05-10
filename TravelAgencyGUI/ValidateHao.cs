@@ -1,4 +1,4 @@
-﻿using System;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -7,7 +7,7 @@ using System.Windows.Forms;
 
 // if use this validator in the future, don't forget to change the namespace to match specific project.
 // Write validator from scratch
-namespace ProductMaintenanceGUI
+namespace TravelAgencyGUI
 {
     public static class ValidateHao // define a new class called ValidateHao, no need ValidateHao(), no need paranthesis
     {
@@ -60,7 +60,7 @@ namespace ProductMaintenanceGUI
         }
 
         // method that checks if the text box is empty
-        public static bool isPresence(TextBox tb, string name)
+        public static bool IsPresent(TextBox tb, string name)
         {
             bool isThere = true;
 
