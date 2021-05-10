@@ -99,6 +99,7 @@ namespace TravelAgencyGUI
             this.Controls.Add(this.dgvPackages);
             this.Font = new System.Drawing.Font("Segoe UI Semibold", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
             this.Name = "frmPackageTable";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Form1";
             this.Load += new System.EventHandler(this.frmPackageTable_Load);
             ((System.ComponentModel.ISupportInitialize)(this.dgvPackages)).EndInit();

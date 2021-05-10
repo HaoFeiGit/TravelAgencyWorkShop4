@@ -7,6 +7,8 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using Microsoft.Data.SqlClient;
+using Microsoft.EntityFrameworkCore;
 using TravelAgencyData;
 
 namespace TravelAgencyGUI
@@ -14,8 +16,8 @@ namespace TravelAgencyGUI
     public partial class frmPackageTable : Form
     {
         private TravelExpertsContext context = new TravelExpertsContext();
-        private Packages selectedPackage;        
-
+        private Packages selectedPackage;
+        public int newPackageId;
         public frmPackageTable()
         {
             InitializeComponent();
@@ -123,26 +125,141 @@ namespace TravelAgencyGUI
                 DeletePackage();
             }
         }
-
+        // procedure to modify the package
         private void ModifyPackage()
         {
-            frmPackageEdit packEditForm = new frmPackageEdit();
-            packEditForm.Show();
+            //Open AddModify Package form
+            var packEditForm = new frmPackageEdit()
+            {
+                AddPackage = false, // this is Modify
+                package = selectedPackage // pass selected package object into child form
+            };
+            //packEditForm.Show();
+            DialogResult result = packEditForm.ShowDialog();// display modal
+            if (result == DialogResult.OK)// user clicked Accept on the second form
+            {
+                try
+                {
+                    selectedPackage = packEditForm.package; // modify data
+                    context.SaveChanges();                  // save changes to the server
+                    DisplayPackage();
+                }
+                catch (DbUpdateConcurrencyException ex)
+                {
+                    HandleConcurrencyError(ex);
+                }
+                catch (DbUpdateException ex)
+                {
+                    HandleDatabaseError(ex);
+                }
+                catch (Exception ex)
+                {
+                    HandleGeneralError(ex);
+                }
+            }
         }
 
         private void DeletePackage()
         {
             DialogResult result = MessageBox.Show($"Do you want to delete {selectedPackage.PkgName}?",
                             "Confirm Delete", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
+            if (result == DialogResult.Yes)// user confirmed the deletion
+            {
+                try
+                {
+                    context.Packages.Remove(selectedPackage); //remove the package from the table Packages
+                    //remove the package from the table PackagesSuppliersProducts
+
+                    context.SaveChanges(true);
+                    DisplayPackage();
+                }
+                catch (DbUpdateConcurrencyException ex)
+                {
+                    HandleConcurrencyError(ex);
+                }
+                catch (DbUpdateException ex)
+                {
+                    HandleDatabaseError(ex);
+                }
+                catch (Exception ex)
+                {
+                    HandleGeneralError(ex);
+                }
+            }
 
         }
- 
+        // Add a new package button clicked
         private void btnAddPack_Click(object sender, EventArgs e)
         {
-            frmPackageEdit packEditForm = new frmPackageEdit();
-            packEditForm.Show();
+            //Open AddModify Package form
+            var packEditForm = new frmPackageEdit()
+            {
+                AddPackage = true, // this is Add
+                package = null,  //do not pass in
+                //generate new id +1 from the last row value
+                newPkgId = Int32.Parse(dgvPackages.Rows[dgvPackages.RowCount - 1].Cells[0].Value.ToString().Trim()) + 1
+            };
+            //packEditForm.Show();
+            DialogResult result = packEditForm.ShowDialog();
+            if (result == DialogResult.OK)// user clicked on Accept on the second form
+            {
+                try
+                {
+                    selectedPackage = packEditForm.package;// record package received back from the AddModify form
+                    context.Packages.Add(selectedPackage); //add the new package to database
+                    context.SaveChanges();                 //save changes to the server
+                    DisplayPackage();
+                }
+                catch (DbUpdateException ex)
+                {
+                    HandleDatabaseError(ex);
+                }
+                catch (Exception ex)
+                {
+                    HandleGeneralError(ex);
+                }
+            }
+        }
+        private void HandleConcurrencyError(DbUpdateConcurrencyException ex)
+        {
+            ex.Entries.Single().Reload();
+
+            var state = context.Entry(selectedPackage).State;
+            if (state == EntityState.Detached)
+            {
+                MessageBox.Show("Another user has deleted that package.",
+                    "Concurrency Error");
+            }
+            else
+            {
+                string message = "Another user has updated that package.\n" +
+                    "The current database values will be displayed.";
+                MessageBox.Show(message, "Concurrency Error");
+            }
+            this.DisplayPackage();
         }
 
+        private void HandleDatabaseError(DbUpdateException ex)
+        {
+            string errorMessage = "";
+            var sqlException = (SqlException)ex.InnerException;
+            foreach (SqlError error in sqlException.Errors)
+            {
+                errorMessage += "ERROR CODE:  " + error.Number + " " +
+                                error.Message + "\n";
+            }
+            MessageBox.Show(errorMessage);
+        }
+
+        private void HandleGeneralError(Exception ex)
+        {
+            MessageBox.Show(ex.Message, ex.GetType().ToString());
+        }
+
+        private void btnExit_Click(object sender, EventArgs e)
+        {
+            this.Close();
+        }
         private void btnManageProduct_Click(object sender, EventArgs e)
         {
             frmProductTable prodTableForm = new frmProductTable();
@@ -154,10 +271,7 @@ namespace TravelAgencyGUI
             frmSupplierTable supTableForm = new frmSupplierTable();
             supTableForm.Show();
         }
-       private void btnExit_Click(object sender, EventArgs e)
-        {
-            Application.Exit();
-        }
+
 
         private bool ValidCommission(TextBox basePrice, TextBox commission)
         {

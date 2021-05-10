@@ -22,3 +22,15 @@ C:\Users\jimmy\Source\Repos\TravelAgencyWorkShop4\TravelAgencyData\obj\Debug\net
 C:\Users\jimmy\Source\Repos\TravelAgencyWorkShop4\TravelAgencyData\obj\Debug\netcoreapp3.1\TravelAgencyData.dll
 C:\Users\jimmy\Source\Repos\TravelAgencyWorkShop4\TravelAgencyData\obj\Debug\netcoreapp3.1\TravelAgencyData.pdb
 C:\Users\jimmy\Source\Repos\TravelAgencyWorkShop4\TravelAgencyData\obj\Debug\netcoreapp3.1\TravelAgencyData.genruntimeconfig.cache
+e:\Users\Masha\Documents\Repos\TravelAgencyData\bin\Debug\netcoreapp3.1\TravelAgencyData.deps.json
+e:\Users\Masha\Documents\Repos\TravelAgencyData\bin\Debug\netcoreapp3.1\TravelAgencyData.runtimeconfig.json
+e:\Users\Masha\Documents\Repos\TravelAgencyData\bin\Debug\netcoreapp3.1\TravelAgencyData.runtimeconfig.dev.json
+e:\Users\Masha\Documents\Repos\TravelAgencyData\bin\Debug\netcoreapp3.1\TravelAgencyData.dll
+e:\Users\Masha\Documents\Repos\TravelAgencyData\bin\Debug\netcoreapp3.1\TravelAgencyData.pdb
+e:\Users\Masha\Documents\Repos\TravelAgencyData\obj\Debug\netcoreapp3.1\TravelAgencyData.csprojAssemblyReference.cache
+e:\Users\Masha\Documents\Repos\TravelAgencyData\obj\Debug\netcoreapp3.1\TravelAgencyData.AssemblyInfoInputs.cache
+e:\Users\Masha\Documents\Repos\TravelAgencyData\obj\Debug\netcoreapp3.1\TravelAgencyData.AssemblyInfo.cs
+e:\Users\Masha\Documents\Repos\TravelAgencyData\obj\Debug\netcoreapp3.1\TravelAgencyData.csproj.CoreCompileInputs.cache
+e:\Users\Masha\Documents\Repos\TravelAgencyData\obj\Debug\netcoreapp3.1\TravelAgencyData.dll
+e:\Users\Masha\Documents\Repos\TravelAgencyData\obj\Debug\netcoreapp3.1\TravelAgencyData.pdb
+e:\Users\Masha\Documents\Repos\TravelAgencyData\obj\Debug\netcoreapp3.1\TravelAgencyData.genruntimeconfig.cache

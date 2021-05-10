@@ -1,24 +1,20 @@
 {
   "format": 1,
   "restore": {
-    "C:\\Users\\jimmy\\Source\\Repos\\TravelAgencyWorkShop4\\TravelAgencyData\\TravelAgencyData.csproj": {}
+    "e:\\Users\\Masha\\Documents\\Repos\\TravelAgencyData\\TravelAgencyData.csproj": {}
   },
   "projects": {
-    "C:\\Users\\jimmy\\Source\\Repos\\TravelAgencyWorkShop4\\TravelAgencyData\\TravelAgencyData.csproj": {
+    "e:\\Users\\Masha\\Documents\\Repos\\TravelAgencyData\\TravelAgencyData.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\jimmy\\Source\\Repos\\TravelAgencyWorkShop4\\TravelAgencyData\\TravelAgencyData.csproj",
+        "projectUniqueName": "e:\\Users\\Masha\\Documents\\Repos\\TravelAgencyData\\TravelAgencyData.csproj",
         "projectName": "TravelAgencyData",
-        "projectPath": "C:\\Users\\jimmy\\Source\\Repos\\TravelAgencyWorkShop4\\TravelAgencyData\\TravelAgencyData.csproj",
-        "packagesPath": "C:\\Users\\jimmy\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\jimmy\\Source\\Repos\\TravelAgencyWorkShop4\\TravelAgencyData\\obj\\",
+        "projectPath": "e:\\Users\\Masha\\Documents\\Repos\\TravelAgencyData\\TravelAgencyData.csproj",
+        "packagesPath": "C:\\Users\\Masha\\.nuget\\packages\\",
+        "outputPath": "e:\\Users\\Masha\\Documents\\Repos\\TravelAgencyData\\obj\\",
         "projectStyle": "PackageReference",
-        "fallbackFolders": [
-          "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
-        ],
         "configFilePaths": [
-          "C:\\Users\\jimmy\\AppData\\Roaming\\NuGet\\NuGet.Config",
-          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.FallbackLocation.config",
+          "C:\\Users\\Masha\\AppData\\Roaming\\NuGet\\NuGet.Config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
         ],
         "originalTargetFrameworks": [
